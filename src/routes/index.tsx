@@ -33,7 +33,7 @@ function MovistarFrame({
   variant?: "light" | "dark";
 }) {
   const frameSrc = variant === "dark" ? marcoAzul : marco;
-  const bg = variant === "dark" ? "bg-brand-blue" : "bg-brand-white";
+  const bg = variant === "dark" ? "bg-brand-blue" : "bg-brand-blue";
   return (
     <div className="flex min-h-screen items-center justify-center bg-brand-black p-0 sm:p-6">
       <div className={`relative w-full max-w-[480px] aspect-[9/16] overflow-hidden ${bg} shadow-2xl`}>
@@ -57,13 +57,13 @@ function WelcomeScreen({ onAccess }: { onAccess: () => void }) {
       aria-label="Pulsa para acceder"
     >
       <img src={bgImage} alt="" className="absolute inset-0 w-full h-full object-cover" />
-      <div className="relative z-10 flex flex-col h-full px-10 pt-[14%] pb-16">
-        <h1 className="text-brand-white font-bold text-[clamp(2rem,7vw,3.25rem)] leading-[1.05] text-center tracking-tight drop-shadow-lg">
+      <div className="relative z-10 flex flex-col h-full px-10 pt-[22%] pb-0">
+        <h1 className="text-brand-white font-bold text-[clamp(1.5rem,5vw,2.25rem)] leading-[1.1] text-center tracking-tight drop-shadow-lg">
           Descarga aquí<br />tu vídeo
         </h1>
-        <div className="mt-auto">
-          <div className="bg-brand-white rounded-xl py-5 px-6 text-center shadow-lg">
-            <span className="text-brand-blue font-bold text-2xl">Pulsa para acceder</span>
+        <div className="mt-[55%]">
+          <div className="bg-brand-white rounded-xl py-4 px-6 text-center shadow-lg">
+            <span className="text-brand-blue font-bold text-xl">Pulsa para acceder</span>
           </div>
         </div>
       </div>
@@ -93,35 +93,35 @@ function CodeScreen({ onSuccess }: { onSuccess: (code: string) => void }) {
   };
 
   return (
-    <div className="absolute inset-0 flex flex-col items-center px-10 pt-[16%] pb-16 text-brand-black">
+    <div className="absolute inset-0 flex flex-col items-center px-10 pt-[22%] pb-0 text-brand-white">
       {error ? (
         <>
           <img src={icoFail} alt="" className="w-24 h-auto mb-4" />
-          <p className="text-center text-xl leading-snug">
-            <span className="font-bold block text-2xl mb-1">¡Ups!</span>
+          <p className="text-center text-base leading-snug text-brand-white">
+            <span className="font-bold block text-xl mb-1">¡Ups!</span>
             El código introducido no es correcto<br />o no existe. Inténtalo de nuevo.
           </p>
         </>
       ) : (
         <>
-          <h1 className="font-bold text-[clamp(2rem,7vw,3rem)] leading-[1.05] text-center text-brand-blue">
+          <h1 className="font-bold text-[clamp(1.5rem,5vw,2.25rem)] leading-[1.1] text-center text-brand-white">
             Descarga aquí<br />tu vídeo
           </h1>
-          <p className="mt-6 text-center text-lg leading-snug">
+          <p className="mt-4 text-center text-sm leading-snug text-brand-white">
             Introduce tu código personal<br />de 3 caracteres que te hemos facilitado<br />anteriormente.
           </p>
         </>
       )}
 
       <div
-        className={`mt-8 w-[70%] min-h-[88px] rounded-xl flex items-center justify-center bg-keyboard-bg text-brand-black font-bold text-5xl tracking-[0.2em] ${
+        className={`mt-[8%] w-[70%] min-h-[80px] rounded-xl flex items-center justify-center bg-brand-white text-brand-black font-bold text-5xl tracking-[0.2em] ${
           error ? "ring-4 ring-brand-fail" : ""
         }`}
       >
         {code || "\u00A0"}
       </div>
 
-      <div className="mt-8 rounded-2xl grid grid-cols-5 gap-2 w-[92%]">
+      <div className="mt-6 rounded-2xl grid grid-cols-5 gap-2 w-[92%]">
         {["1", "2", "3", "4"].map((n) => (
           <KeyButton key={n} onClick={() => handleKey(n)}>{n}</KeyButton>
         ))}
@@ -173,33 +173,32 @@ function QRScreen({ code, onReset }: { code: string; onReset: () => void }) {
   }, [targetUrl]);
 
   return (
-    <div className="absolute inset-0 flex flex-col items-center px-10 pt-[16%] pb-16 text-brand-black">
-      <img src={icoOk} alt="" className="w-20 h-auto mb-3" />
-      <h1 className="font-bold text-[clamp(1.75rem,6.5vw,2.5rem)] leading-[1.05] text-center text-brand-blue">
+    <div className="absolute inset-0 flex flex-col items-center px-10 pt-[22%] pb-0 text-brand-white">
+      <h1 className="font-bold text-[clamp(1.5rem,5vw,2.25rem)] leading-[1.1] text-center text-brand-white">
         ¡Tu vídeo está listo!
       </h1>
-      <p className="mt-4 text-center text-base leading-snug">
+      <p className="mt-3 text-center text-sm leading-snug text-brand-white">
         Para descargar tu vídeo, captura este<br />código QR con tu teléfono móvil.
       </p>
 
-      <div className="mt-5 bg-brand-white rounded-2xl p-4 border-2 border-brand-blue">
+      <div className="mt-[6%] bg-brand-white rounded-2xl p-4 border-2 border-brand-white">
         {qrDataUrl ? (
-          <img src={qrDataUrl} alt="Código QR" className="w-52 h-52" />
+          <img src={qrDataUrl} alt="Código QR" className="w-44 h-44" />
         ) : (
-          <div className="w-52 h-52" />
+          <div className="w-44 h-44" />
         )}
       </div>
 
-      <p className="mt-4 text-center text-base leading-snug">
+      <p className="mt-4 text-center text-sm leading-snug text-brand-white">
         ¡No te olvides de compartirlo en redes<br />con el hashtag <strong>#MovistarConLaRoja!</strong>
       </p>
-      <p className="text-center font-bold text-2xl mt-3 text-brand-blue">#MovistarConLaRoja</p>
+      <p className="text-center font-bold text-xl mt-2 text-brand-white">#MovistarConLaRoja</p>
 
       <button
         onClick={onReset}
-        className="mt-auto w-full bg-brand-blue rounded-xl py-4 px-6 flex items-center justify-center gap-3 shadow-lg text-brand-white font-bold text-xl hover:brightness-95 active:scale-[0.99] transition"
+        className="mt-6 w-full bg-brand-white rounded-xl py-4 px-6 flex items-center justify-center gap-3 shadow-lg text-brand-blue font-bold text-xl hover:brightness-95 active:scale-[0.99] transition"
       >
-        <ThumbsUp className="w-6 h-6" />
+        <img src={icoOk} alt="" className="w-6 h-6" />
         ¡Lo tengo!
       </button>
     </div>
@@ -211,7 +210,7 @@ function Index() {
   const [code, setCode] = useState("");
 
   return (
-    <MovistarFrame variant={stage === "welcome" ? "dark" : "light"}>
+    <MovistarFrame variant="dark">
       {stage === "welcome" && <WelcomeScreen onAccess={() => setStage("code")} />}
       {stage === "code" && (
         <CodeScreen
