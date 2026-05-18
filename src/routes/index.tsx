@@ -61,8 +61,8 @@ function WelcomeScreen({ onAccess }: { onAccess: () => void }) {
         <h1 className="text-brand-white font-bold text-[clamp(1.5rem,5vw,2.25rem)] leading-[1.1] text-center tracking-tight drop-shadow-lg">
           Descarga aquí<br />tu vídeo
         </h1>
-        <div className="mt-[50%]">
-          <div className="bg-brand-white rounded-xl py-4 px-6 text-center shadow-lg">
+        <div className="mt-[75%]">
+          <div className="bg-brand-white rounded-md py-4 px-6 text-center shadow-lg">
             <span className="text-brand-blue font-bold text-xl">Pulsa para acceder</span>
           </div>
         </div>
@@ -134,9 +134,9 @@ function CodeScreen({ onSuccess }: { onSuccess: (code: string) => void }) {
         <button
           onClick={handleConfirm}
           aria-label="Confirmar"
-          className="aspect-square rounded-lg bg-brand-white flex items-center justify-center hover:brightness-95 active:scale-95 transition shadow-sm"
+          className="aspect-square rounded-md bg-brand-white flex items-center justify-center hover:brightness-95 active:scale-95 transition shadow-sm"
         >
-          <img src={checkedIcon} alt="" className="w-3/4 h-3/4" />
+          <img src={checkedIcon} alt="" className="w-1/2 h-1/2" />
         </button>
       </div>
     </div>
@@ -181,11 +181,11 @@ function QRScreen({ code, onReset }: { code: string; onReset: () => void }) {
         Para descargar tu vídeo, captura este<br />código QR con tu teléfono móvil.
       </p>
 
-      <div className="mt-[6%] bg-brand-white rounded-2xl p-4 border-2 border-brand-white">
+      <div className="mt-[6%] bg-brand-white rounded-md p-3 border-2 border-brand-white">
         {qrDataUrl ? (
-          <img src={qrDataUrl} alt="Código QR" className="w-44 h-44" />
+          <img src={qrDataUrl} alt="Código QR" className="w-[33vw] max-w-[160px] aspect-square" />
         ) : (
-          <div className="w-44 h-44" />
+          <div className="w-[33vw] max-w-[160px] aspect-square" />
         )}
       </div>
 
@@ -196,7 +196,7 @@ function QRScreen({ code, onReset }: { code: string; onReset: () => void }) {
 
       <button
         onClick={onReset}
-        className="mt-6 w-full bg-brand-white rounded-xl py-4 px-6 flex items-center justify-center gap-3 shadow-lg text-brand-blue font-bold text-xl hover:brightness-95 active:scale-[0.99] transition"
+        className="mt-6 w-full bg-brand-white rounded-md py-4 px-6 flex items-center justify-center gap-3 shadow-lg text-brand-blue font-bold text-xl hover:brightness-95 active:scale-[0.99] transition"
       >
         <img src={icoOk} alt="" className="w-6 h-6" />
         ¡Lo tengo!
