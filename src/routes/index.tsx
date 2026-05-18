@@ -218,6 +218,5 @@ function Index() {
       )}
       {stage === "qr" && <QRScreen code={code} onReset={() => setStage("welcome")} />}
     </MovistarFrame>
-    </div>
   );
 }
