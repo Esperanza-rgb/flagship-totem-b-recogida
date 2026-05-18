@@ -33,7 +33,7 @@ function MovistarFrame({
   variant?: "light" | "dark";
 }) {
   const frameSrc = variant === "dark" ? marcoAzul : marco;
-  const bg = variant === "dark" ? "bg-brand-blue" : "bg-brand-blue";
+  const bg = "bg-brand-blue";
   return (
     <div className="flex min-h-screen items-center justify-center bg-brand-black p-0 sm:p-6">
       <div className={`relative w-full max-w-[480px] aspect-[9/16] overflow-hidden ${bg} shadow-2xl`}>
@@ -57,11 +57,11 @@ function WelcomeScreen({ onAccess }: { onAccess: () => void }) {
       aria-label="Pulsa para acceder"
     >
       <img src={bgImage} alt="" className="absolute inset-0 w-full h-full object-cover" />
-      <div className="relative z-10 flex flex-col h-full px-10 pt-[22%] pb-0">
+      <div className="relative z-10 flex flex-col h-full px-10 pt-[26%] pb-[10%]">
         <h1 className="text-brand-white font-bold text-[clamp(1.5rem,5vw,2.25rem)] leading-[1.1] text-center tracking-tight drop-shadow-lg">
           Descarga aquí<br />tu vídeo
         </h1>
-        <div className="mt-[55%]">
+        <div className="mt-[50%]">
           <div className="bg-brand-white rounded-xl py-4 px-6 text-center shadow-lg">
             <span className="text-brand-blue font-bold text-xl">Pulsa para acceder</span>
           </div>
@@ -93,7 +93,7 @@ function CodeScreen({ onSuccess }: { onSuccess: (code: string) => void }) {
   };
 
   return (
-    <div className="absolute inset-0 flex flex-col items-center px-10 pt-[22%] pb-0 text-brand-white">
+    <div className="absolute inset-0 flex flex-col items-center px-10 pt-[26%] pb-[8%] text-brand-white">
       {error ? (
         <>
           <img src={icoFail} alt="" className="w-24 h-auto mb-4" />
@@ -134,9 +134,9 @@ function CodeScreen({ onSuccess }: { onSuccess: (code: string) => void }) {
         <button
           onClick={handleConfirm}
           aria-label="Confirmar"
-          className="aspect-square flex items-center justify-center hover:brightness-95 active:scale-95 transition"
+          className="aspect-square rounded-lg bg-brand-white flex items-center justify-center hover:brightness-95 active:scale-95 transition shadow-sm"
         >
-          <img src={checkedIcon} alt="" className="w-full h-full" />
+          <img src={checkedIcon} alt="" className="w-3/4 h-3/4" />
         </button>
       </div>
     </div>
@@ -173,7 +173,7 @@ function QRScreen({ code, onReset }: { code: string; onReset: () => void }) {
   }, [targetUrl]);
 
   return (
-    <div className="absolute inset-0 flex flex-col items-center px-10 pt-[22%] pb-0 text-brand-white">
+    <div className="absolute inset-0 flex flex-col items-center px-10 pt-[26%] pb-[8%] text-brand-white">
       <h1 className="font-bold text-[clamp(1.5rem,5vw,2.25rem)] leading-[1.1] text-center text-brand-white">
         ¡Tu vídeo está listo!
       </h1>
