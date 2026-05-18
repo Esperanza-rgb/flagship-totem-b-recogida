@@ -4,6 +4,25 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@font-face {
+  font-family: "Movistar";
+  src: url("/fonts/MovistarSans-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Movistar";
+  src: url("/fonts/MovistarSans-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Movistar";
+  src: url("/fonts/MovistarSans-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-display: swap;
+}
+
 /*
  * Design system definition.
  *
@@ -63,8 +82,16 @@
 
 :root {
   --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.129 0.042 264.695);
+  /* Movistar brand: white #FFFAF5, blue #0066FF, black #262423 */
+  --background: oklch(0.985 0.012 80);
+  --foreground: oklch(0.18 0.005 60);
+  --brand-blue: oklch(0.55 0.24 264);
+  --brand-white: oklch(0.985 0.012 80);
+  --brand-black: oklch(0.18 0.005 60);
+  --brand-fail: oklch(0.65 0.13 35);
+  --keyboard-bg: oklch(0.88 0.01 250);
+  --keyboard-key: oklch(1 0 0);
+  --confirm-bg: oklch(0.85 0.05 264);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.129 0.042 264.695);
   --popover: oklch(1 0 0);
@@ -95,6 +122,17 @@
   --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
   --sidebar-border: oklch(0.929 0.013 255.508);
   --sidebar-ring: oklch(0.704 0.04 256.788);
+}
+
+@theme inline {
+  --color-brand-blue: var(--brand-blue);
+  --color-brand-white: var(--brand-white);
+  --color-brand-black: var(--brand-black);
+  --color-brand-fail: var(--brand-fail);
+  --color-keyboard-bg: var(--keyboard-bg);
+  --color-keyboard-key: var(--keyboard-key);
+  --color-confirm-bg: var(--confirm-bg);
+  --font-movistar: "Movistar", system-ui, sans-serif;
 }
 
 .dark {
@@ -140,5 +178,6 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
+    font-family: "Movistar", system-ui, sans-serif;
   }
 }
