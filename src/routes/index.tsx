@@ -20,14 +20,15 @@ const VALID_CODES = new Set(["ABCD", "1234", "A1B2", "ZDT4"]); // demo valid cod
 
 type Stage = "welcome" | "code" | "qr";
 
-function MovistarFrame({ children }: { children: React.ReactNode }) {
+function MovistarFrame({ children, showLogo = true }: { children: React.ReactNode; showLogo?: boolean }) {
   return (
     <div className="flex min-h-screen items-center justify-center bg-brand-blue p-0 sm:p-6">
       <div className="relative w-full max-w-[480px] aspect-[9/16] overflow-hidden bg-brand-blue shadow-2xl">
-        {/* Movistar logo notch */}
-        <div className="absolute top-0 right-0 z-20 bg-brand-white rounded-bl-2xl px-5 py-3 flex items-center justify-center">
-          <MovistarLogo />
-        </div>
+        {showLogo && (
+          <div className="absolute top-0 right-0 z-20 bg-brand-white rounded-bl-2xl px-5 py-3 flex items-center justify-center">
+            <MovistarLogo />
+          </div>
+        )}
         {children}
       </div>
     </div>
@@ -206,7 +207,7 @@ function Index() {
   const [code, setCode] = useState("");
 
   return (
-    <MovistarFrame>
+    <MovistarFrame showLogo={stage !== "welcome"}>
       {stage === "welcome" && <WelcomeScreen onAccess={() => setStage("code")} />}
       {stage === "code" && (
         <CodeScreen
