@@ -292,7 +292,7 @@ function SurveyScreen({ onComplete }: { onComplete: () => void }) {
 
   return (
     <div className="absolute inset-0 flex flex-col px-10 pt-[26%] pb-[10%] text-brand-white">
-      <h1 className="font-bold text-[clamp(1.5rem,5vw,2.25rem)] leading-[1.05] text-brand-white my-[8px] mt-[16px]">
+      <h1 className="font-bold text-[clamp(1.5rem,5vw,2.25rem)] leading-[1.05] text-brand-white my-[8px] mt-[16px] mx-[16px]">
         Tu opinión<br />nos importa
       </h1>
       <p className="mt-4 text-sm leading-snug text-brand-white">
