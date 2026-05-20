@@ -324,7 +324,7 @@ function SurveyScreen({ onComplete }: { onComplete: () => void }) {
         ))}
       </div>
 
-      <div className="mt-auto flex items-center justify-center gap-2">
+      <div className="mt-auto mb-[32px] flex items-center justify-center gap-2">
         {SURVEY_QUESTIONS.map((_, i) => {
           const done = i < step;
           const active = i === step;
