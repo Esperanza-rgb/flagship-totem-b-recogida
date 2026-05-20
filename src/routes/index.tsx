@@ -205,7 +205,6 @@ function QRScreen({ code, onReset }: { code: string; onReset: () => void }) {
   );
 }
 
-function Index() {
 function VideoScreen({ onNext }: { onNext: () => void }) {
   const [playing, setPlaying] = useState(false);
   return (
