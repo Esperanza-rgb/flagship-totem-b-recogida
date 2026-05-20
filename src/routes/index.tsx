@@ -181,7 +181,7 @@ function QRScreen({ code, onReset }: { code: string; onReset: () => void }) {
         Estará disponible para su descarga durante las próximas 24h. Pasado ese tiempo, tu vídeo será eliminado. ¡Descárgalo ahora!
       </p>
 
-      <div className="mt-[6%] bg-brand-white rounded-md p-3 border-2 border-brand-white">
+      <div className="bg-brand-white rounded-md p-3 border-2 border-brand-white mt-[32px]">
         {qrDataUrl ? (
           <img src={qrDataUrl} alt="Código QR" className="w-[16vw] max-w-[80px] aspect-square" />
         ) : (
