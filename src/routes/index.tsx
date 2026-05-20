@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
 import QRCode from "qrcode";
-import { Delete, ThumbsUp } from "lucide-react";
+import { ArrowRight, Delete, Play } from "lucide-react";
 import bgImage from "@/assets/bg-image.png";
 import marcoAzul from "@/assets/marco-azul.png";
 import marco from "@/assets/marco.png";
@@ -23,7 +23,7 @@ const VALID_KEYS = ["1", "2", "3", "4", "A", "B", "C", "D"] as const;
 const CODE_LENGTH = 3;
 const VALID_CODES = new Set(["123", "ABC", "A1B", "B2C", "D4A"]); // demo valid codes
 
-type Stage = "welcome" | "code" | "qr";
+type Stage = "welcome" | "code" | "video" | "survey" | "qr";
 
 function MovistarFrame({
   children,
@@ -205,6 +205,166 @@ function QRScreen({ code, onReset }: { code: string; onReset: () => void }) {
   );
 }
 
+function VideoScreen({ onNext }: { onNext: () => void }) {
+  const [playing, setPlaying] = useState(false);
+  return (
+    <div className="absolute inset-0 flex flex-col items-center px-10 pt-[26%] pb-[8%] text-brand-white">
+      <h1 className="font-bold text-[clamp(1.5rem,5vw,2.25rem)] leading-[1.1] text-center text-brand-white">
+        ¡Tu vídeo está listo!
+      </h1>
+      <p className="mt-3 text-center text-sm leading-snug text-brand-white">
+        Para visualizarlo, pulsa en el PLAY.<br />
+        Para descárgalo pulsa en el botón ‘Siguiente’
+      </p>
+
+      <div className="mt-[5%] w-[70%] aspect-[9/16] bg-brand-black rounded-md flex items-center justify-center overflow-hidden">
+        {playing ? (
+          <video
+            src="https://www.w3schools.com/html/mov_bbb.mp4"
+            className="w-full h-full object-cover"
+            autoPlay
+            controls
+            playsInline
+          />
+        ) : (
+          <button
+            onClick={() => setPlaying(true)}
+            aria-label="Reproducir"
+            className="w-full h-full flex items-center justify-center hover:scale-105 transition"
+          >
+            <Play className="w-16 h-16 text-brand-white" strokeWidth={1.5} />
+          </button>
+        )}
+      </div>
+
+      <button
+        onClick={onNext}
+        className="mt-6 w-full bg-brand-white rounded-md py-4 px-6 flex items-center justify-center gap-3 shadow-lg text-brand-blue font-bold text-xl hover:brightness-95 active:scale-[0.99] transition"
+      >
+        <ArrowRight className="w-6 h-6" />
+        Siguiente
+      </button>
+    </div>
+  );
+}
+
+const SURVEY_QUESTIONS = [
+  {
+    q: "¿Maecenas non magna dictum, condimentum leo posuere, porta est?",
+    options: [
+      "Cras eu dolor ut facilisis pulvinar",
+      "Curabitur at sem nibh",
+      "Aenean feugiat ullamcorper tempor",
+    ],
+  },
+  {
+    q: "¿Quisque consequat lectus eget magna?",
+    options: [
+      "Vestibulum ante ipsum primis",
+      "Donec sit amet libero",
+      "Phasellus vel mauris",
+    ],
+  },
+  {
+    q: "¿Integer placerat purus eget velit?",
+    options: [
+      "Suspendisse potenti dapibus",
+      "Nam vitae nibh tristique",
+      "Aliquam erat volutpat",
+    ],
+  },
+  {
+    q: "¿Pellentesque habitant morbi tristique?",
+    options: [
+      "Sed ut perspiciatis unde",
+      "Nemo enim ipsam voluptatem",
+      "Ut enim ad minima veniam",
+    ],
+  },
+  {
+    q: "¿Curabitur pretium tincidunt lacus?",
+    options: [
+      "Nulla gravida orci a odio",
+      "Vivamus euismod mauris",
+      "Mauris fermentum dictum magna",
+    ],
+  },
+];
+
+function SurveyScreen({ onComplete }: { onComplete: () => void }) {
+  const [step, setStep] = useState(0);
+  const [answers, setAnswers] = useState<(number | null)[]>(
+    SURVEY_QUESTIONS.map(() => null),
+  );
+  const current = SURVEY_QUESTIONS[step];
+  const selected = answers[step];
+
+  const choose = (i: number) => {
+    const next = [...answers];
+    next[step] = i;
+    setAnswers(next);
+    setTimeout(() => {
+      if (step < SURVEY_QUESTIONS.length - 1) setStep(step + 1);
+      else onComplete();
+    }, 250);
+  };
+
+  return (
+    <div className="absolute inset-0 flex flex-col px-10 pt-[26%] pb-[10%] text-brand-white">
+      <h1 className="font-bold text-[clamp(1.5rem,5vw,2.25rem)] leading-[1.05] text-brand-white">
+        Tu opinión<br />nos importa
+      </h1>
+      <p className="mt-4 text-sm leading-snug text-brand-white">
+        Mientras preparamos la descarga de tu vídeo,
+        nos gustaría que respondieras a unas preguntas
+        acerca de la experiencia.
+      </p>
+
+      <p className="mt-6 font-bold text-base text-brand-white">{current.q}</p>
+
+      <div className="mt-4 flex flex-col gap-3">
+        {current.options.map((opt, i) => (
+          <button
+            key={i}
+            onClick={() => choose(i)}
+            className="flex items-center gap-3 text-left text-brand-white"
+          >
+            <span
+              className={`shrink-0 w-6 h-6 rounded-full border-2 border-brand-white flex items-center justify-center ${
+                selected === i ? "bg-brand-white" : ""
+              }`}
+            >
+              {selected === i && (
+                <span className="w-3 h-3 rounded-full bg-brand-blue" />
+              )}
+            </span>
+            <span className="text-base leading-snug">{opt}</span>
+          </button>
+        ))}
+      </div>
+
+      <div className="mt-auto flex items-center gap-2">
+        {SURVEY_QUESTIONS.map((_, i) => {
+          const done = i < step;
+          const active = i === step;
+          return (
+            <div key={i} className="flex items-center gap-2">
+              <span
+                className={`w-3 h-3 rounded-full border-2 border-brand-white ${
+                  done || active ? "bg-brand-white" : "bg-transparent"
+                }`}
+              />
+              {i < SURVEY_QUESTIONS.length - 1 && (
+                <span className="w-8 h-px bg-brand-white" />
+              )}
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
 function Index() {
   const [stage, setStage] = useState<Stage>("welcome");
   const [code, setCode] = useState("");
@@ -216,10 +376,12 @@ function Index() {
         <CodeScreen
           onSuccess={(c) => {
             setCode(c);
-            setStage("qr");
+            setStage("video");
           }}
         />
       )}
+      {stage === "video" && <VideoScreen onNext={() => setStage("survey")} />}
+      {stage === "survey" && <SurveyScreen onComplete={() => setStage("qr")} />}
       {stage === "qr" && <QRScreen code={code} onReset={() => setStage("welcome")} />}
     </MovistarFrame>
   );
