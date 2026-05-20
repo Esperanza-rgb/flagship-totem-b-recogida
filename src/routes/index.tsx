@@ -270,6 +270,14 @@ const SURVEY_QUESTIONS = [
       "Aliquam erat volutpat",
     ],
   },
+  {
+    q: "¿Fusce dapibus tellus ac cursus commodo?",
+    options: [
+      "Etiam porta sem malesuada",
+      "Vivamus sagittis lacus vel",
+      "Morbi leo risus porta ac",
+    ],
+  },
 ];
 
 function SurveyScreen({ onComplete }: { onComplete: () => void }) {
