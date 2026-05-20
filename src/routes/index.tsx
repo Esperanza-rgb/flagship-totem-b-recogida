@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
 import QRCode from "qrcode";
-import { Delete, ThumbsUp } from "lucide-react";
+import { ArrowRight, Delete, Play } from "lucide-react";
 import bgImage from "@/assets/bg-image.png";
 import marcoAzul from "@/assets/marco-azul.png";
 import marco from "@/assets/marco.png";
@@ -23,7 +23,7 @@ const VALID_KEYS = ["1", "2", "3", "4", "A", "B", "C", "D"] as const;
 const CODE_LENGTH = 3;
 const VALID_CODES = new Set(["123", "ABC", "A1B", "B2C", "D4A"]); // demo valid codes
 
-type Stage = "welcome" | "code" | "qr";
+type Stage = "welcome" | "code" | "video" | "survey" | "qr";
 
 function MovistarFrame({
   children,
@@ -216,10 +216,12 @@ function Index() {
         <CodeScreen
           onSuccess={(c) => {
             setCode(c);
-            setStage("qr");
+            setStage("video");
           }}
         />
       )}
+      {stage === "video" && <VideoScreen onNext={() => setStage("survey")} />}
+      {stage === "survey" && <SurveyScreen onComplete={() => setStage("qr")} />}
       {stage === "qr" && <QRScreen code={code} onReset={() => setStage("welcome")} />}
     </MovistarFrame>
   );
