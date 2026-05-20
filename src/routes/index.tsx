@@ -295,15 +295,15 @@ function SurveyScreen({ onComplete }: { onComplete: () => void }) {
       <h1 className="font-bold text-[clamp(1.5rem,5vw,2.25rem)] leading-[1.05] text-brand-white my-[8px] mt-[16px] mx-[16px]">
         Tu opinión<br />nos importa
       </h1>
-      <p className="mt-4 text-sm leading-snug text-brand-white">
+      <p className="mt-4 text-sm leading-snug text-brand-white mx-[16px]">
         Mientras preparamos la descarga de tu vídeo,
         nos gustaría que respondieras a unas preguntas
         acerca de la experiencia.
       </p>
 
-      <p className="mt-6 font-bold text-base text-brand-white">{current.q}</p>
+      <p className="mt-6 font-bold text-base text-brand-white mx-[16px]">{current.q}</p>
 
-      <div className="mt-4 flex flex-col gap-3">
+      <div className="mt-4 flex flex-col gap-3 mx-[16px]">
         {current.options.map((opt, i) => (
           <button
             key={i}
