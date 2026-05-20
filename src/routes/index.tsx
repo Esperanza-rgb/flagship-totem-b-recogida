@@ -172,7 +172,7 @@ function QRScreen({ code, onReset }: { code: string; onReset: () => void }) {
   return (
     <div className="absolute inset-0 flex flex-col items-center px-10 pt-[26%] pb-[8%] text-brand-white">
       <h1 className="font-bold text-[clamp(1.5rem,5vw,2.25rem)] leading-[1.1] text-center text-brand-white my-[8px] mt-[16px]">
-        ¡Tu vídeo está listo!
+        ¡Gracias por responder!
       </h1>
       <p className="mt-3 text-center text-sm leading-snug text-brand-white">
         Para descargar tu vídeo, captura este<br />código QR con tu teléfono móvil.
