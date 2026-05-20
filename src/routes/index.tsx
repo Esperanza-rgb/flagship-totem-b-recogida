@@ -273,22 +273,6 @@ const SURVEY_QUESTIONS = [
       "Aliquam erat volutpat",
     ],
   },
-  {
-    q: "¿Pellentesque habitant morbi tristique?",
-    options: [
-      "Sed ut perspiciatis unde",
-      "Nemo enim ipsam voluptatem",
-      "Ut enim ad minima veniam",
-    ],
-  },
-  {
-    q: "¿Curabitur pretium tincidunt lacus?",
-    options: [
-      "Nulla gravida orci a odio",
-      "Vivamus euismod mauris",
-      "Mauris fermentum dictum magna",
-    ],
-  },
 ];
 
 function SurveyScreen({ onComplete }: { onComplete: () => void }) {
@@ -343,7 +327,7 @@ function SurveyScreen({ onComplete }: { onComplete: () => void }) {
         ))}
       </div>
 
-      <div className="mt-auto flex items-center gap-2">
+      <div className="mt-auto flex items-center justify-center gap-2">
         {SURVEY_QUESTIONS.map((_, i) => {
           const done = i < step;
           const active = i === step;
