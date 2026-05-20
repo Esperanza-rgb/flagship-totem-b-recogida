@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
 import QRCode from "qrcode";
-import { ArrowRight, Delete, Play } from "lucide-react";
+import { ArrowRight, Delete, Play, Star } from "lucide-react";
 import bgImage from "@/assets/bg-image.png";
 import marcoAzul from "@/assets/marco-azul.png";
 import marco from "@/assets/marco.png";
@@ -272,11 +272,8 @@ const SURVEY_QUESTIONS = [
   },
   {
     q: "En general, ¿cómo valorarías tu experiencia siendo 5 la puntuación\nmás alta?",
-    options: [
-      "Etiam porta sem malesuada",
-      "Vivamus sagittis lacus vel",
-      "Morbi leo risus porta ac",
-    ],
+    type: "stars" as const,
+    options: ["1", "2", "3", "4", "5"],
   },
 ];
 
@@ -311,6 +308,27 @@ function SurveyScreen({ onComplete }: { onComplete: () => void }) {
 
       <p className="mt-6 font-bold text-base text-brand-white mx-[16px]">{current.q}</p>
 
+      {current.type === "stars" ? (
+        <div className="mt-6 flex items-center justify-center gap-3 mx-[16px]">
+          {current.options.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => choose(i)}
+              aria-label={`${i + 1} estrella${i === 0 ? "" : "s"}`}
+              className="active:scale-95 transition"
+            >
+              <Star
+                className={`w-12 h-12 ${
+                  selected !== null && i <= selected
+                    ? "fill-brand-white text-brand-white"
+                    : "text-brand-white"
+                }`}
+                strokeWidth={2}
+              />
+            </button>
+          ))}
+        </div>
+      ) : (
       <div className="mt-4 flex flex-col gap-3 mx-[16px]">
         {current.options.map((opt, i) => (
           <button
@@ -331,6 +349,7 @@ function SurveyScreen({ onComplete }: { onComplete: () => void }) {
           </button>
         ))}
       </div>
+      )}
 
       <div className="mt-auto mb-[32px] flex items-center justify-center gap-2">
         {SURVEY_QUESTIONS.map((_, i) => {
