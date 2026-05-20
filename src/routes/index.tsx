@@ -193,7 +193,7 @@ function QRScreen({ code, onReset }: { code: string; onReset: () => void }) {
 
       <button
         onClick={onReset}
-        className="mt-6 w-[80%] mx-auto bg-brand-white rounded-md py-4 px-6 flex items-center justify-center gap-3 shadow-lg text-brand-blue font-bold text-xl hover:brightness-95 active:scale-[0.99] transition"
+        className="w-[80%] mx-auto bg-brand-white rounded-md py-4 px-6 flex items-center justify-center gap-3 shadow-lg text-brand-blue font-bold text-xl hover:brightness-95 active:scale-[0.99] transition mt-[102px]"
       >
         <img src={icoOk} alt="" className="w-6 h-6" />
         ¡Lo tengo!
