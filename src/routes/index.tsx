@@ -189,7 +189,7 @@ function QRScreen({ code, onReset }: { code: string; onReset: () => void }) {
         )}
       </div>
 
-      <p className="mt-4 text-center font-bold text-xl text-brand-white">#MovistarConLaRoja</p>
+      <p className="mt-4 text-center font-bold text-brand-white text-base">#MovistarConLaRoja</p>
 
       <button
         onClick={onReset}
