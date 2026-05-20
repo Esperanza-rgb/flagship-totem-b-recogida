@@ -93,7 +93,7 @@ function CodeScreen({ onSuccess }: { onSuccess: (code: string) => void }) {
     <div className="absolute inset-0 flex flex-col items-center px-10 pt-[26%] pb-[8%] text-brand-white">
       {error ? (
         <>
-          <img src={icoFail} alt="" className="w-24 h-auto mb-4" />
+          <img src={icoFail} alt="" className="w-24 h-auto mb-4 mt-[16px]" />
           <p className="text-center text-base leading-snug text-brand-white">
             <span className="font-bold block text-xl mb-1">¡Ups!</span>
             El código introducido no es correcto<br />o no existe. Inténtalo de nuevo.
