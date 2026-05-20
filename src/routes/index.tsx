@@ -189,10 +189,7 @@ function QRScreen({ code, onReset }: { code: string; onReset: () => void }) {
         )}
       </div>
 
-      <p className="mt-4 text-center text-sm leading-snug text-brand-white">
-        ¡No te olvides de compartirlo en redes<br />con el hashtag <strong>#MovistarConLaRoja!</strong>
-      </p>
-      <p className="text-center font-bold text-xl mt-2 text-brand-white">#MovistarConLaRoja</p>
+      <p className="mt-4 text-center font-bold text-xl text-brand-white">#MovistarConLaRoja</p>
 
       <button
         onClick={onReset}
