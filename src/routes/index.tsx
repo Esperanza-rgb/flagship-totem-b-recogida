@@ -318,7 +318,7 @@ function SurveyScreen({ onComplete }: { onComplete: () => void }) {
               className="active:scale-95 transition"
             >
               <Star
-                className={`w-12 h-12 ${
+                className={`w-10 h-10 ${
                   selected !== null && i <= selected
                     ? "fill-brand-white text-brand-white"
                     : "text-brand-white"
