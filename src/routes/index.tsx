@@ -208,7 +208,7 @@ function QRScreen({ code, onReset }: { code: string; onReset: () => void }) {
 function VideoScreen({ onNext }: { onNext: () => void }) {
   const [playing, setPlaying] = useState(false);
   return (
-    <div className="absolute inset-0 flex flex-col items-center px-10 pt-[26%] pb-[8%] text-brand-white">
+    <div className="absolute inset-0 flex flex-col items-center px-10 pt-[26%] pb-[18%] text-brand-white">
       <h1 className="font-bold text-[clamp(1.5rem,5vw,2.25rem)] leading-[1.1] text-center text-brand-white">
         ¡Tu vídeo está listo!
       </h1>
@@ -217,7 +217,7 @@ function VideoScreen({ onNext }: { onNext: () => void }) {
         Para descárgalo pulsa en el botón ‘Siguiente’
       </p>
 
-      <div className="mt-[5%] w-[70%] aspect-[9/16] bg-brand-black rounded-md flex items-center justify-center overflow-hidden">
+      <div className="mt-[5%] w-[58%] aspect-[9/16] bg-brand-black rounded-md flex items-center justify-center overflow-hidden">
         {playing ? (
           <video
             src="https://www.w3schools.com/html/mov_bbb.mp4"
