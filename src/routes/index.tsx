@@ -329,7 +329,7 @@ function SurveyScreen({ onComplete }: { onComplete: () => void }) {
           const done = i < step;
           const active = i === step;
           return (
-            <div key={i} className="flex items-center gap-2">
+            <div key={i} className="flex items-center gap-2 my-[56px]">
               <span
                 className={`w-3 h-3 rounded-full border-2 border-brand-white ${
                   done || active ? "bg-brand-white" : "bg-transparent"
