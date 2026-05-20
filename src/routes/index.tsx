@@ -118,7 +118,7 @@ function CodeScreen({ onSuccess }: { onSuccess: (code: string) => void }) {
         {code || "\u00A0"}
       </div>
 
-      <div className="mt-6 rounded-2xl grid grid-cols-5 gap-2 w-[92%]">
+      <div className="mt-6 rounded-2xl grid grid-cols-5 gap-2 w-[70%]">
         {["1", "2", "3", "4"].map((n) => (
           <KeyButton key={n} onClick={() => handleKey(n)}>{n}</KeyButton>
         ))}
