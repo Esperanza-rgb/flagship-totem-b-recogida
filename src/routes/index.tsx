@@ -174,10 +174,10 @@ function QRScreen({ code, onReset }: { code: string; onReset: () => void }) {
       <h1 className="font-bold text-[clamp(1.5rem,5vw,2.25rem)] leading-[1.1] text-center text-brand-white my-[8px] mt-[16px]">
         ¡Gracias por responder!
       </h1>
-      <p className="mt-3 text-center text-sm leading-snug text-brand-white">
+      <p className="mt-3 text-center text-sm leading-snug text-brand-white -mx-2">
         Para descargar tu vídeo, captura este<br />código QR con tu teléfono móvil.
       </p>
-      <p className="mt-3 text-center text-sm leading-snug text-brand-white max-w-[260px] mx-auto">
+      <p className="mt-3 text-center text-sm leading-snug text-brand-white max-w-[300px] mx-auto">
         Estará disponible para su descarga durante las próximas 24h. Pasado ese tiempo, tu vídeo será eliminado. ¡Descárgalo ahora!
       </p>
 
