@@ -59,7 +59,7 @@ function WelcomeScreen({ onAccess }: { onAccess: () => void }) {
       <img src={bgImage} alt="" className="absolute inset-0 w-full h-full object-cover" />
       <div className="relative z-10 flex flex-col h-full px-10 pt-[26%] pb-[10%]">
         <div className="mt-[118%]">
-          <div className="bg-brand-white rounded-md py-4 px-6 text-center shadow-lg mx-auto w-[75%]">
+          <div className="bg-brand-white rounded-md py-4 px-6 text-center shadow-lg mx-auto w-[80%]">
             <span className="text-brand-blue font-bold text-xl">Descarga tu vídeo aquí</span>
           </div>
         </div>
@@ -193,7 +193,7 @@ function QRScreen({ code, onReset }: { code: string; onReset: () => void }) {
 
       <button
         onClick={onReset}
-        className="mt-6 w-full bg-brand-white rounded-md py-4 px-6 flex items-center justify-center gap-3 shadow-lg text-brand-blue font-bold text-xl hover:brightness-95 active:scale-[0.99] transition"
+        className="mt-6 w-[80%] mx-auto bg-brand-white rounded-md py-4 px-6 flex items-center justify-center gap-3 shadow-lg text-brand-blue font-bold text-xl hover:brightness-95 active:scale-[0.99] transition"
       >
         <img src={icoOk} alt="" className="w-6 h-6" />
         ¡Lo tengo!
@@ -236,7 +236,7 @@ function VideoScreen({ onNext }: { onNext: () => void }) {
 
       <button
         onClick={onNext}
-        className="mt-6 w-full bg-brand-white rounded-md py-4 px-6 flex items-center justify-center gap-3 shadow-lg text-brand-blue font-bold text-xl hover:brightness-95 active:scale-[0.99] transition"
+        className="mt-6 w-[80%] mx-auto bg-brand-white rounded-md py-4 px-6 flex items-center justify-center gap-3 shadow-lg text-brand-blue font-bold text-xl hover:brightness-95 active:scale-[0.99] transition"
       >
         <ArrowRight className="w-6 h-6" />
         Siguiente
