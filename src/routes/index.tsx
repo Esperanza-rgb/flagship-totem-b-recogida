@@ -180,6 +180,9 @@ function QRScreen({ code, onReset }: { code: string; onReset: () => void }) {
       <p className="mt-3 text-center text-sm leading-snug text-brand-white">
         Para descargar tu vídeo, captura este<br />código QR con tu teléfono móvil.
       </p>
+      <p className="mt-3 text-center text-sm leading-snug text-brand-white">
+        Estará disponible para su descarga durante las próximas 24h. Pasado ese tiempo, tu vídeo será eliminado. ¡Descárgalo ahora!
+      </p>
 
       <div className="mt-[6%] bg-brand-white rounded-md p-3 border-2 border-brand-white">
         {qrDataUrl ? (
