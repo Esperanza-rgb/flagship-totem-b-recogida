@@ -271,7 +271,7 @@ const SURVEY_QUESTIONS = [
     ],
   },
   {
-    q: "¿Fusce dapibus tellus ac cursus commodo?",
+    q: "En general, ¿cómo valorarías tu experiencia siendo 5 la puntuación\nmás alta?",
     options: [
       "Etiam porta sem malesuada",
       "Vivamus sagittis lacus vel",
