@@ -58,9 +58,6 @@ function WelcomeScreen({ onAccess }: { onAccess: () => void }) {
     >
       <img src={bgImage} alt="" className="absolute inset-0 w-full h-full object-cover" />
       <div className="relative z-10 flex flex-col h-full px-10 pt-[26%] pb-[10%]">
-        <h1 className="text-brand-white font-bold text-[clamp(1.5rem,5vw,2.25rem)] leading-[1.1] text-center tracking-tight drop-shadow-lg">
-          Descarga aquí<br />tu vídeo
-        </h1>
         <div className="mt-[75%]">
           <div className="bg-brand-white rounded-md py-4 px-6 text-center shadow-lg">
             <span className="text-brand-blue font-bold text-xl">Pulsa para acceder</span>
