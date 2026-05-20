@@ -59,7 +59,7 @@ function WelcomeScreen({ onAccess }: { onAccess: () => void }) {
       <img src={bgImage} alt="" className="absolute inset-0 w-full h-full object-cover" />
       <div className="relative z-10 flex flex-col h-full px-10 pt-[26%] pb-[10%]">
         <div className="mt-[118%]">
-          <div className="bg-brand-white rounded-md py-4 px-6 text-center shadow-lg">
+          <div className="bg-brand-white rounded-md py-4 px-6 text-center shadow-lg mx-auto w-[75%]">
             <span className="text-brand-blue font-bold text-xl">Descarga tu vídeo aquí</span>
           </div>
         </div>
