@@ -183,9 +183,9 @@ function QRScreen({ code, onReset }: { code: string; onReset: () => void }) {
 
       <div className="mt-[6%] bg-brand-white rounded-md p-3 border-2 border-brand-white">
         {qrDataUrl ? (
-          <img src={qrDataUrl} alt="Código QR" className="w-[33vw] max-w-[160px] aspect-square" />
+          <img src={qrDataUrl} alt="Código QR" className="w-[600px] h-[600px]" />
         ) : (
-          <div className="w-[33vw] max-w-[160px] aspect-square" />
+          <div className="w-[600px] h-[600px]" />
         )}
       </div>
 
