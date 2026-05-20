@@ -309,7 +309,7 @@ function SurveyScreen({ onComplete }: { onComplete: () => void }) {
       <p className="mt-6 font-bold text-base text-brand-white mx-[16px]">{current.q}</p>
 
       {(current as { type?: string }).type === "stars" ? (
-        <div className="mt-6 flex items-center justify-center gap-3 mx-[16px]">
+        <div className="flex items-center justify-center gap-3 mx-[16px] mt-[32px]">
           {current.options.map((_, i) => (
             <button
               key={i}
