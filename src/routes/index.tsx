@@ -351,7 +351,7 @@ function Index() {
   const [code, setCode] = useState("");
 
   return (
-    <MovistarFrame variant={stage === "welcome" ? "dark" : "light"}>
+    <MovistarFrame variant="light">
       {stage === "welcome" && <WelcomeScreen onAccess={() => setStage("code")} />}
       {stage === "code" && (
         <CodeScreen
