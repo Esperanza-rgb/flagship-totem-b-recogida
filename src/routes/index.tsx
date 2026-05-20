@@ -111,7 +111,7 @@ function CodeScreen({ onSuccess }: { onSuccess: (code: string) => void }) {
       )}
 
       <div
-        className={`mt-[8%] w-[70%] min-h-[80px] rounded-xl flex items-center justify-center bg-brand-white text-brand-black font-bold text-5xl tracking-[0.2em] ${
+        className={`w-[70%] min-h-[80px] rounded-xl flex items-center justify-center bg-brand-white text-brand-black font-bold text-5xl tracking-[0.2em] my-[14px] mb-[8px] mt-[32px] ${
           error ? "ring-4 ring-brand-fail" : ""
         }`}
       >
